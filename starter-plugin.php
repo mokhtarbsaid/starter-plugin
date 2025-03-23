@@ -3,11 +3,7 @@
  * Plugin Name: Starter Plugin
  * Plugin URI:  https://mokhtarbensaid.com
  * Description: A starter template for building WordPress plugins with best practices.
-<<<<<<< HEAD
  * Version:     1.2.0
-=======
- * Version:     1.0.0
->>>>>>> a47efd9c1b6859ed58267d9eef6b28a9638fdc74
  * Author:      Mokhtar Bensaid
  * Author URI:  https://mokhtarbensaid.com
  * License:     GPL-2.0+
