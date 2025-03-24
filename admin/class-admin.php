@@ -1,13 +1,6 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
 // If accessed directly, deny access.
 defined('ABSPATH') || exit;
-=======
->>>>>>> a47efd9c1b6859ed58267d9eef6b28a9638fdc74
-=======
->>>>>>> a47efd9c1b6859ed58267d9eef6b28a9638fdc74
-
 class Starter_Plugin_Admin {
     public function init() {
         // Register menu for the panel.
@@ -38,7 +31,7 @@ class Starter_Plugin_Admin {
             // Load admin CSS files.
             wp_enqueue_style(
                 'starter-plugin-admin-style', // ID
-                STARTER_PLUGIN_URL . 'admin/assets/admin-style.css', // file path
+                STARTER_PLUGIN_URL . 'admin/assets/css/admin-style.css', // file path
                 [],
                 STARTER_PLUGIN_VERSION // plugin version
             );
@@ -46,7 +39,7 @@ class Starter_Plugin_Admin {
             // تحميل ملف JS.
             wp_enqueue_script(
                 'starter-plugin-admin-script', // ID
-                STARTER_PLUGIN_URL . 'admin/assets/admin-script.js', // file path
+                STARTER_PLUGIN_URL . 'admin/assets/js/admin-script.js', // file path
                 ['jquery'], // dependencies
                 STARTER_PLUGIN_VERSION, // plugin version
                 true // load in the footer?
