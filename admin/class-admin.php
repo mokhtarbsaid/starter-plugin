@@ -6,7 +6,7 @@ class Starter_Plugin_Admin {
         // Register menu for the panel.
         add_action('admin_menu', [$this, 'register_admin_menu']);
         
-        // Load admin CSS و JS files.
+        // Load admin CSS and JS files.
         add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_assets']);
 
         // Add some plugin settings
@@ -36,7 +36,7 @@ class Starter_Plugin_Admin {
                 STARTER_PLUGIN_VERSION // plugin version
             );
 
-            // تحميل ملف JS.
+            // load JS files.
             wp_enqueue_script(
                 'starter-plugin-admin-script', // ID
                 STARTER_PLUGIN_URL . 'admin/assets/js/admin-script.js', // file path
@@ -65,7 +65,9 @@ class Starter_Plugin_Admin {
     }
 
     public function register_settings() {
-        register_setting('starter_plugin_options_group', 'starter_plugin_options');
+        register_setting('starter_plugin_options_group', 'starter_plugin_options', [
+            'sanitize_callback' => [$this, 'sanitize_options'],
+        ]);
 
         add_settings_section(
             'starter_plugin_main_section',
@@ -92,6 +94,12 @@ class Starter_Plugin_Admin {
         ?>
         <input type="text" name="starter_plugin_options[setting_1]" value="<?php echo esc_attr($options['setting_1'] ?? ''); ?>" />
         <?php
+    }
+
+    public function sanitize_options($input) {
+        $output = [];
+        $output['setting_1'] = isset($input['setting_1']) ? sanitize_text_field($input['setting_1']) : '';
+        return $output;
     }
 
 

@@ -1,6 +1,4 @@
 <?php
-// If accessed directly, deny access.
-defined('ABSPATH') || exit;
 
 spl_autoload_register(function ($class_name) {
     if (strpos($class_name, 'Starter_Plugin_') === 0) {

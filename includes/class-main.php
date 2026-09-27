@@ -3,9 +3,24 @@
 defined('ABSPATH') || exit;
 
 class Starter_Plugin_Main {
-    public function __construct() {
+
+    private static $instance = null;
+
+    public static function instance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    private function __construct() {
         // You can load the translated texts here.
-        load_plugin_textdomain('starter-plugin', false, dirname(plugin_basename(__FILE__)) . '/languages');
+        add_action('init', [$this, 'load_textdomain']);
+        $this->run();
+    }
+
+    public function load_textdomain() {
+        load_plugin_textdomain('starter-plugin', false, dirname(STARTER_PLUGIN_BASENAME) . '/languages');
     }
 
     public function run() {

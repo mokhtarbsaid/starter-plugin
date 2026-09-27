@@ -1,6 +1,4 @@
 <?php
-// If accessed directly, deny access.
-defined('ABSPATH') || exit;
 
 class Starter_Plugin_Deactivator {
     public static function deactivate() {

@@ -1,6 +1,4 @@
 <?php
-// If accessed directly, deny access.
-defined('ABSPATH') || exit;
 
 class Starter_Plugin_Activator {
     public static function activate() {
